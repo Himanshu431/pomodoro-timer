@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(33, 33, 33, 0.9);
+    color: white;
+    -webkit-app-region: drag;
+    min-height: 100vh;
+    min-width: 200px; /* Minimum width for the app */
+}
+
+.container {
+    padding: 8px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: space-between;
+    max-width: 100%;
+    margin: 0 auto;
+    gap: 5px; /* Add small gap between elements */
+}
+
+.motivation-container {
+    position: relative;
+    margin: 2px 0;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.1);
+    font-size: clamp(8px, 2.5vw, 14px); /* Slightly smaller minimum font size */
+    min-height: 40px; /* Ensure minimum height for visibility */
+    display: flex;
+    align-items: center;
+}
+
+.motivation-text {
+    line-height: 1.2;
+    color: #fff;
+    text-align: center;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    font-size: 12px;
+    flex: 1;
+    cursor: pointer; /* Add cursor pointer to indicate clickable */
+    user-select: none; /* Prevent text selection on double click */
+}
+
+.refresh-btn {
+    display: none;
+}
+
+.timer-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    min-height: 20px; /* Ensure minimum height for timer */
+}
+
+#timer {
+    font-size: clamp(28px, 12vw, 64px); /* Slightly smaller size range */
+    font-weight: bold;
+}
+
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: clamp(3px, 1.5vw, 8px);
+    padding: clamp(6px, 2vw, 15px);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 6px;
+    margin-top: auto;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: clamp(6px, 1.5vw, 10px) clamp(12px, 3vw, 20px);
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
+    -webkit-app-region: no-drag;
+    font-size: clamp(10px, 2vw, 14px);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: translateY(-2px);
+}
+
+/* Animation for quote changes */
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(3px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+.motivation-text.animate {
+    animation: fadeInOut 0.5s ease-in-out;
+}
+
+/* Only keep the media query for very narrow screens */
+@media (max-width: 250px) {
+    .controls-container {
+        flex-direction: column;
+        gap: 3px;
+    }
+    
+    button {
+        width: 100%;
+    }
+}
+
+/* Remove all modal-related styles */
+.modal,
+.modal-content,
+.modal-header,
+.modal-header h3,
+.close-btn,
+.setting-item,
+.setting-item label,
+.setting-item input,
+.save-btn {
+    display: none;
+} 
